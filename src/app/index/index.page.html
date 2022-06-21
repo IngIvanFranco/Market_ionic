@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    
+      <ion-input placeholder="Cual es tu sueño..." class="input" color="dark"></ion-input>
+    
+    
+    <ion-buttons slot="end">
+      <ion-icon name="cart-outline" class="icon"></ion-icon>
+      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+<ion-item>
+  <ion-img src="https://invercomes.com.co/assets/img/varios/bn1.jpg"></ion-img>
+</ion-item>
+
+<ion-item>
+  <ion-img src="https://invercomes.com.co/assets/img/varios/sl-c333.jpg"></ion-img>
+</ion-item>
+
+  <ion-card *ngFor="let p of products; let i = index">
+    <ion-card-header>
+      <ion-img class="imgcard" src="https://invercomes.com.co/assets/img/products/product/{{p.id}}.jpg" routerLink="/folder/{{p.id}}"></ion-img>
+      <ion-card-subtitle>Nombre</ion-card-subtitle>
+      <ion-card-title>{{p.name}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <p *ngIf="p.descuento > 0">Descuento {{p.descuento}}</p>
+     <p>Valor: $ {{p.price}}</p>
+      <ion-button >
+        Add Cart
+      </ion-button>
+    </ion-card-content>
+    
+  </ion-card>
+
+ 
+</ion-content>
