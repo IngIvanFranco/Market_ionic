@@ -1,0 +1,23 @@
+<ion-toolbar color="primary" >
+
+    <ion-buttons  >
+      <ion-icon name="close-circle-outline" (click)="dismiss()"></ion-icon>
+      <ion-title>Sub categorias</ion-title>
+      
+    </ion-buttons>
+
+</ion-toolbar>
+
+<ion-content >
+  <div class="sub" *ngFor="let ca of subcategorias">
+  <ion-item  *ngIf="ca.categoria_id == id" routerLink="Categoria/{{ca.nombre_subcategoria}}" (click)="dismiss()" >
+    
+    <ion-icon name="pricetag-outline"></ion-icon>
+    <ion-title>
+        {{ca.nombre_subcategoria}}
+    </ion-title>
+
+  </ion-item>
+</div>
+</ion-content>
+

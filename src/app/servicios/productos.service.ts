@@ -32,7 +32,7 @@ getproductsearhc(q){
 
 
 getproductscategory(id){
-  return this.http.get(`${this.api}?listarproductos=${{id}}`);
+  return this.http.get(this.api+"?listarproductos="+id)
 }
 
 

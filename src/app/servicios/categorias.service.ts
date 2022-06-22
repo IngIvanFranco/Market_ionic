@@ -15,4 +15,8 @@ export class CategoriasService {
 
 	}
 
+	getsubcategorias(){
+		return this.http.get(`${this.api}?consultarsubcategorias=1`);
+	}
+
 }
