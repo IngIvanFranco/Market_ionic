@@ -17,10 +17,20 @@ const routes: Routes = [
     loadChildren: () => import('./index/index.module').then( m => m.IndexPageModule)
   },
   {
+    path: 'Sub-categorias/:id',
+    loadChildren: () => import('./subcategorias/subcategorias.module').then( m => m.SubcategoriasPageModule)
+  },
+  {
+    path: 'Search/:q',
+    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'Home',
     pathMatch: 'full'
   },
+  
+  
 ];
 
 @NgModule({

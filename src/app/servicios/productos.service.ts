@@ -18,16 +18,17 @@ getproductsdescuento(){
 }
 
 getproductssubcate(id){
-  return this.http.get(`${this.api}?prodsubcate=${{id}}`);
+    
+  return this.http.get(`${this.api}?prodsubcate=${id}`);
 }
 
 getproduct(id){
-  return this.http.get(`${this.api}?consultarproducto=${{id}}`);
+  return this.http.get(`${this.api}?consultarproducto=${id}`);
 }
 
 
 getproductsearhc(q){
-  return this.http.get(`${this.api}?consultarproductos=${{q}}`);
+  return this.http.get(`${this.api}?consultarproductos=${q}`);
 }
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { Loading } from 'notiflix';
 import { ModalsubcategoriasComponent } from '../modales/modalsubcategorias/modalsubcategorias.component';
 import { ProductosService } from '../servicios/productos.service';
 
@@ -19,6 +20,7 @@ export class FolderPage implements OnInit {
     private servicio:ProductosService) { }
 
   ngOnInit() {
+    Loading.pulse()
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     this.traerproductos()
   
@@ -36,10 +38,11 @@ export class FolderPage implements OnInit {
   }
 
   traerproductos(){
+    
 this.servicio.getproductscategory(this.folder).subscribe(res=>{
  this.products=res
   
-  
+ Loading.remove()
 })
   }
 

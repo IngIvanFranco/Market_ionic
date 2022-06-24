@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Loading } from 'notiflix';
 import { ProductosService } from '../servicios/productos.service';
 
 @Component({
@@ -8,11 +9,13 @@ import { ProductosService } from '../servicios/productos.service';
 })
 export class IndexPage implements OnInit {
 products:any
+q:string
   constructor(
     private servicio:ProductosService
   ) { }
 
   ngOnInit() {
+    Loading.pulse()
     this.traerproductos()
   }
 
@@ -20,7 +23,13 @@ products:any
 
     this.servicio.getproductsgg().subscribe(res=>{
 this.products = res
+Loading.remove()
     })
+  }
+
+  search(){
+console.log(this.q);
+
   }
 
 }

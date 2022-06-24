@@ -1,10 +1,16 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="dark">
+  <ion-toolbar color="secondary" >
     <ion-buttons slot="start">
       <ion-menu-button ></ion-menu-button>
     </ion-buttons>
-    
-      <ion-input placeholder="Cual es tu sueño..." class="input" color="dark"></ion-input>
+
+    <ion-item >
+     <ion-input placeholder="Cual es tu sueño..."  color="secondary" type="text" [(ngModel)]="q" ></ion-input>
+     <ion-label routerLink="Categoria/{{q}}"  ><ion-icon name="search-outline" ></ion-icon></ion-label>
+    </ion-item>
+     
+
+   
     
     
     <ion-buttons slot="end">
@@ -14,19 +20,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
 
-<ion-item>
+<ion-item >
   <ion-img src="https://invercomes.com.co/assets/img/varios/sl-c333.jpg"></ion-img>
 </ion-item>
 
-<ion-item>
+<ion-item >
   <ion-img src="https://invercomes.com.co/assets/img/varios/bn1.jpg"></ion-img>
 </ion-item>
 
-  <ion-card *ngFor="let p of products; let i = index">
+  <ion-card *ngFor="let p of products; let i = index" >
     <ion-card-header>
-      <ion-img class="imgcard" src="https://invercomes.com.co/assets/img/products/product/{{p.id}}.jpg" routerLink="/folder/{{p.id}}"></ion-img>
+      <ion-img class="imgcard" src="https://invercomes.com.co/assets/img/products/product/{{p.id}}.jpg" routerLink="/Categoria/{{p.id}}"></ion-img>
       <ion-card-subtitle>Nombre</ion-card-subtitle>
       <ion-card-title>{{p.name}}</ion-card-title>
     </ion-card-header>

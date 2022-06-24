@@ -10,7 +10,7 @@
 
 <ion-content >
   <div class="sub" *ngFor="let ca of subcategorias">
-  <ion-item  *ngIf="ca.categoria_id == id" routerLink="Categoria/{{ca.nombre_subcategoria}}" (click)="dismiss()" >
+  <ion-item  *ngIf="ca.categoria_id == id" routerLink="Sub-categorias/{{ca.id_subcategoria}}" (click)="dismiss()" >
     
     <ion-icon name="pricetag-outline"></ion-icon>
     <ion-title>

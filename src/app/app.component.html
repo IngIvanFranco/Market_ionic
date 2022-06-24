@@ -3,9 +3,10 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
+          
           <ion-list-header>INVERCOMES</ion-list-header>
           <ion-note>Cual es tu sueño</ion-note>
-          
+       
           <ion-menu-toggle auto-hide="false" *ngFor="let p of categorias; let i = index">
             <ion-item routerDirection="root" routerLink="/Categoria/{{p.id_categoria}}" lines="none" detail="false" routerLinkActive="selected">
               <ion-avatar slot="end">
@@ -21,7 +22,7 @@
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
     <ion-tabs >
-      <ion-tab-bar color="dark" slot="bottom">
+      <ion-tab-bar color="secondary" slot="bottom">
         <ion-tab-button tab="Home" >
           <ion-icon name="home-outline"></ion-icon>
           <ion-label>Home</ion-label>

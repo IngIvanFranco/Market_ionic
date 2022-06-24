@@ -1,10 +1,10 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="dark">
+  <ion-toolbar color="secondary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     
-      <ion-input placeholder="Cual es tu sueño..." class="input" color="dark"></ion-input>
+      <ion-input placeholder="Cual es tu sueño..." class="input" color="secondary"></ion-input>
     
     
     <ion-buttons slot="end">
@@ -15,8 +15,8 @@
 
 <ion-content [fullscreen]="true">
 
-  <div *ngFor="let p of products">
-  <ion-card>
+  <div class="contencard" >
+  <ion-card *ngFor="let p of products">
     <ion-card-header>
       <ion-card-subtitle>Producto</ion-card-subtitle>
       <ion-card-title>{{p.name}}</ion-card-title>
