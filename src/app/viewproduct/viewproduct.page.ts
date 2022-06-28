@@ -1,40 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Loading } from 'notiflix';
 import { CartService } from '../servicios/cart.service';
 import { ProductosService } from '../servicios/productos.service';
 
 @Component({
-  selector: 'app-subcategorias',
-  templateUrl: './subcategorias.page.html',
-  styleUrls: ['./subcategorias.page.scss'],
+  selector: 'app-viewproduct',
+  templateUrl: './viewproduct.page.html',
+  styleUrls: ['./viewproduct.page.scss'],
 })
-export class SubcategoriasPage implements OnInit {
-  public id: string;
+export class ViewproductPage implements OnInit {
+  q:string
+  datosrutas:any
   products:any
-q:string
   constructor(
-     private activatedRoute: ActivatedRoute,
-        private servicio:ProductosService,
-        private rutas:Router,
-        private conexcart:CartService,) { }
+    private rutas:Router,
+    private activatedRoute: ActivatedRoute,
+    private servicio:ProductosService,
+    private conexcart:CartService,
+  ) { }
 
   ngOnInit() {
     Loading.pulse()
-    this.id =this.activatedRoute.snapshot.paramMap.get('id');
-    this.traerdatos()
+    this.datosrutas = this.activatedRoute.snapshot.paramMap.get('p');
+   this.traerdatos()
   }
 
 
   traerdatos(){
-    this.servicio.getproductssubcate(this.id).subscribe(res=>{
+
+    this.servicio.getproduct(this.datosrutas).subscribe(res=>{
       this.products = res
-         Loading.remove()
+      console.log(res);
+      Loading.remove()
+      
     })
+
   }
 
   search(){
-    this.rutas.navigateByUrl("Search/"+this.q)
+
   }
 
   public  addcart(id:any,name:any,price:any,des:any,tipo:any,cate,subcate,opcate ){

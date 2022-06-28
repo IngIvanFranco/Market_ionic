@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary" >
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+
+    <ion-item >
+     <ion-input placeholder="Cual es tu sueño..."  color="secondary" type="text" [(ngModel)]="q" ></ion-input>
+     <ion-button color="secondary"  (click)="search()" ><ion-icon name="search-outline" ></ion-icon></ion-button>
+    </ion-item>
+     
+    <ion-buttons slot="end">
+      <ion-icon name="cart-outline" class="icon"></ion-icon>
+      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div *ngFor="let p of products">
+  <ion-card>
+    <ion-card-header>
+      
+      <ion-card-subtitle>
+        <p class="price"><strong>Valor: </strong> $ {{p.price | number }}</p>
+        <p *ngIf="p.descuento > 0" class="descuento"><strong>Descuento:</strong> {{p.descuento}} %</p>
+      </ion-card-subtitle>      
+      <ion-img src="https://invercomes.com.co/assets/img/products/product/{{p.id}}.jpg" ></ion-img>
+      <ion-card-title>{{p.name}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+    {{p.description}}
+    
+    
+    </ion-card-content>
+    <ion-button (click)="addcart(p.id,p.name,p.price,p.descuento,p.ropa_tipo,p.id_categoriaproducts,p.id_subcategoria_products,p.id_opc_subcate)" >
+      Add Cart
+    </ion-button>
+  </ion-card>
+</div>
+</ion-content>

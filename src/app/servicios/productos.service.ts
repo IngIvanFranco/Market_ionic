@@ -28,6 +28,7 @@ getproduct(id){
 
 
 getproductsearhc(q){
+    
   return this.http.get(`${this.api}?consultarproductos=${q}`);
 }
 

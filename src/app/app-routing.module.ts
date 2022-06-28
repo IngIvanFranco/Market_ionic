@@ -24,6 +24,16 @@ const routes: Routes = [
     path: 'Search/:q',
     loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
   },
+  
+  {
+    path: 'viewproduct/:p',
+    loadChildren: () => import('./viewproduct/viewproduct.module').then( m => m.ViewproductPageModule)
+  },
+ 
+  {
+    path: 'viewcart',
+    loadChildren: () => import('./viewcart/viewcart.module').then( m => m.ViewcartPageModule)
+  },
   {
     path: '**',
     redirectTo: 'Home',

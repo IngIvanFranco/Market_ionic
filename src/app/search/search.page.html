@@ -1,9 +1,42 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>search</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary" >
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+
+    <ion-item >
+     <ion-input placeholder="Cual es tu sueño..."  color="secondary" type="text" [(ngModel)]="q" ></ion-input>
+     <ion-button color="secondary"  (click)="search()" ><ion-icon name="search-outline" ></ion-icon></ion-button>
+    </ion-item>
+     
+    
+    <ion-buttons slot="end">
+      <ion-icon name="cart-outline" class="icon"></ion-icon>
+      
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div class="contencard" >
+    <ion-card *ngFor="let p of products">
+      <ion-card-header>
+        <ion-card-subtitle>Producto</ion-card-subtitle>
+        <ion-card-title>{{p.name}}</ion-card-title>
+       <ion-img class="imgcard" src="https://invercomes.com.co/assets/img/products/product/{{p.id}}.jpg" routerLink="/viewproduct/{{p.id}}"></ion-img>
+        
+      </ion-card-header>
+    
+      <ion-card-content>
+        <div class="descuento" *ngIf="p.descuento > 0"><strong>Valor Anterior:</strong> ${{p.price/((100-p.descuento)/100) | number:'1.0-0' }} </div>
+        <div class="descuento" *ngIf="p.descuento > 0"><strong>Descuento:</strong> {{p.descuento}} %</div>
+        <ion-card-title color="dark">$ {{p.price | number}} Cop</ion-card-title>
+        
+          <ion-button class="btnadd" (click)="addcart(p.id,p.name,p.price,p.descuento,p.ropa_tipo,p.id_categoriaproducts,p.id_subcategoria_products,p.id_opc_subcate)">
+            add cart
+          </ion-button>
+        
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from './servicios/cart.service';
 import { CategoriasService } from './servicios/categorias.service';
 @Component({
   selector: 'app-root',
@@ -8,18 +9,25 @@ import { CategoriasService } from './servicios/categorias.service';
 export class AppComponent implements OnInit {
 categorias:any
 
+
  
-  constructor(private servicio:CategoriasService) {}
+  constructor(private servicio:CategoriasService,
+    ) {}
   ngOnInit(): void {
    this.traerdatos()
+  
   }
 
+
+ 
+  
 
   traerdatos(){
- this.servicio.getData().subscribe(res=>{
-  this.categorias = res
- })
-  }
+    this.servicio.getData().subscribe(res=>{
+     this.categorias = res
+    })
+     }
+   
 
 
 
