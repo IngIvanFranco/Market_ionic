@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary" >
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+
+    <ion-item >
+     <ion-input placeholder="Cual es tu sueño..."  color="secondary" type="text" [(ngModel)]="q" ></ion-input>
+     <ion-button color="secondary"  (click)="search()" ><ion-icon name="search-outline" ></ion-icon></ion-button>
+    </ion-item>
+     
+    
+    <ion-buttons slot="end">
+      <ion-icon name="cart-outline" class="icon"></ion-icon>
+      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!log">
+  <ion-title class="titletotalcart" >
+    login
+  </ion-title>
+
+  <ion-card>
+    <ion-card-header>
+     <ion-img src="https://invercomes.com.co/assets/img/icons/User_with_smile.svg.png"></ion-img>
+      <ion-card-title>Datos de usuario</ion-card-title>
+    </ion-card-header>
+    <ion-input placeholder="usr@correo.com"  type="text" [(ngModel)]="usr" ></ion-input>
+    <ion-input placeholder="******"   type="password" [(ngModel)]="pass" ></ion-input>
+   
+    <div class="contenbtn">
+    <ion-button color="primary"  (click)="login()" >Login</ion-button>
+    <ion-button color="warning"  (click)="registrar()" >registrar</ion-button>
+  </div>
+    <ion-card-content>
+     
+    </ion-card-content>
+  </ion-card>
+
+
+
+</ion-content >
+
+<ion-content *ngIf="log">
+  <ion-title class="titletotalcart" >
+      {{customer[0].name}}
+  </ion-title>
+
+  <ion-card>
+    <ion-item  class="ion-activated">
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-label>{{customer[0].email}}</ion-label>
+    </ion-item>
+  
+    <ion-item >
+      <ion-icon name="call-outline" slot="start"></ion-icon>
+      <ion-label>{{customer[0].phone}}</ion-label>
+    </ion-item>
+  
+    <ion-item class="ion-activated">
+      <ion-icon name="home-outline" slot="start"></ion-icon>
+      <ion-label>{{customer[0].address}} {{customer[0].city}}</ion-label>
+    </ion-item>
+  
+  
+  </ion-card>
+
+
+  <ion-button color="danger" (click)="unlogin()">Cerrar sesion</ion-button>
+
+  
+
+
+
+</ion-content>

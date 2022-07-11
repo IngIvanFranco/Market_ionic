@@ -34,6 +34,11 @@ const routes: Routes = [
     path: 'viewcart',
     loadChildren: () => import('./viewcart/viewcart.module').then( m => m.ViewcartPageModule)
   },
+
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
   {
     path: '**',
     redirectTo: 'Home',

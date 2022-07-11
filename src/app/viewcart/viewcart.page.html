@@ -20,6 +20,10 @@
 <ion-content  *ngIf="cart.length > 0; else nothing">
 
 
+  <ion-title class="titletotalcart">
+    Carrito de compras
+  </ion-title>
+
   <ion-card *ngFor="let c of cart; let i = index">
     <ion-item>
       <ion-avatar slot="start">
@@ -52,7 +56,9 @@
     </ion-card-content>
   </ion-card>
 
-
+  <ion-title class="titletotalcart">
+    valor total: ${{vlrtotal | number}}
+  </ion-title>
 
 </ion-content>
 
