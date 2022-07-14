@@ -23,6 +23,9 @@
   <ion-title class="titletotalcart">
     Carrito de compras
   </ion-title>
+  <div class="contbtn" *ngIf="cart.length > 2">
+    <ion-button color="success" routerLink="/checkout" >   <ion-icon name="card-outline"></ion-icon> Comprar </ion-button>
+  </div>
 
   <ion-card *ngFor="let c of cart; let i = index">
     <ion-item>
@@ -60,6 +63,9 @@
     valor total: ${{vlrtotal | number}}
   </ion-title>
 
+  <div class="contbtn">
+  <ion-button color="success" routerLink="/checkout">  <ion-icon name="card-outline"></ion-icon> Comprar</ion-button>
+</div>
 </ion-content>
 
 

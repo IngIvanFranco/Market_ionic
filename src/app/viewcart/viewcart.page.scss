@@ -5,3 +5,15 @@ ion-avatar{
 ion-label{
     margin: 0 10px;
 }
+
+
+.contbtn{
+    margin: 25px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contbtn ion-icon{
+    margin: auto 5px;
+}

@@ -43,35 +43,36 @@
 
 </ion-content >
 
-<ion-content *ngIf="log">
+<ion-content *ngIf="log" >
+  <div class="cont" *ngFor="let c of customer">
   <ion-title class="titletotalcart" >
-      {{customer[0].name}}
+      {{c.name}}
   </ion-title>
 
   <ion-card>
     <ion-item  class="ion-activated">
       <ion-icon name="mail-outline" slot="start"></ion-icon>
-      <ion-label>{{customer[0].email}}</ion-label>
+      <ion-label>{{c.email}}</ion-label>
     </ion-item>
   
     <ion-item >
       <ion-icon name="call-outline" slot="start"></ion-icon>
-      <ion-label>{{customer[0].phone}}</ion-label>
+      <ion-label>{{c.phone}}</ion-label>
     </ion-item>
   
     <ion-item class="ion-activated">
       <ion-icon name="home-outline" slot="start"></ion-icon>
-      <ion-label>{{customer[0].address}} {{customer[0].city}}</ion-label>
+      <ion-label>{{c.address}} {{c.city}}</ion-label>
     </ion-item>
   
   
   </ion-card>
 
-
+<div class="contenbtn">
   <ion-button color="danger" (click)="unlogin()">Cerrar sesion</ion-button>
-
+</div>
   
 
-
+</div>
 
 </ion-content>

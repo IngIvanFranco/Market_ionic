@@ -20,6 +20,21 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (localStorage.getItem('usr') == undefined) {
+      this.log = false
+    }else{
+      this.log = true
+      this.consultarcustomer(localStorage.getItem('usr'))
+    }
+
+    console.log(this.log );
+    
+  }
+
+  consultarcustomer(idcustomer){
+    this.usrservice.getcustomer(idcustomer).subscribe(res=>{
+      this.customer = res
+    })
   }
 
 
@@ -35,6 +50,7 @@ export class LoginPage implements OnInit {
           'usr':this.usr,
           'pass':this.pass
         }
+
        this.usrservice.login(datos).subscribe(res=>{
         Loading.remove()
         this.customer = res
@@ -52,6 +68,9 @@ export class LoginPage implements OnInit {
           'Yeah'
         )
         this.log=true
+
+        localStorage.setItem('usr',this.customer[0].id)
+        this.rutas.navigateByUrl('/viewcart')
        
         }
 
@@ -63,8 +82,9 @@ export class LoginPage implements OnInit {
       }
 
       unlogin(){
+        localStorage.removeItem('usr')
         Loading.circle('Cerrando sesion')
-        Loading.remove(1923)
+        Loading.remove(1523)
         this.log=false
       }
     

@@ -14,5 +14,9 @@ export class UsrService {
     return this.http.post(`${this.api}?login`,datosusr);
   }
 
+  getcustomer(idcustomer){
+    return this.http.get(`${this.api}?consultarcustomers=${idcustomer}`);
+  }
+
 
 }

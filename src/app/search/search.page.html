@@ -35,7 +35,7 @@
       <ion-card-content>
         <div class="descuento" *ngIf="p.descuento > 0"><strong>Valor Anterior:</strong> ${{p.price/((100-p.descuento)/100) | number:'1.0-0' }} </div>
         <div class="descuento" *ngIf="p.descuento > 0"><strong>Descuento:</strong> {{p.descuento}} %</div>
-        <ion-card-title color="dark">$ {{p.price | number}} Cop</ion-card-title>
+        <ion-card-title color="success">$ {{p.price | number}} Cop</ion-card-title>
         
           <ion-button class="btnadd" (click)="addcart(p.id,p.name,p.price,p.descuento,p.ropa_tipo,p.id_categoriaproducts,p.id_subcategoria_products,p.id_opc_subcate)">
             add cart

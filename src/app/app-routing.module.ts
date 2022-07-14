@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {
@@ -40,10 +41,15 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
+    path: 'checkout',
+    loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule),canActivate:[LoginGuard]
+  },
+  {
     path: '**',
     redirectTo: 'Home',
     pathMatch: 'full'
   },
+ 
   
   
 ];
